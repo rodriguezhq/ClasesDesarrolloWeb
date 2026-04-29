@@ -1,0 +1,90 @@
+/* PASO 2: Variables y Tipografía Adaptable */
+:root {
+    /* Paleta Persona 5 */
+    --persona-red: #d80027;
+    --persona-black: #0b0b0f;
+    --persona-ink: #15151b;
+    --persona-white: #f5f1ea;
+    --persona-gold: #f5c542;
+
+    /* Cálculo manual de clamp(mínimo, preferido, máximo) */
+    /* Para h1: 2rem en móviles, crece con el ancho, máximo 4rem */
+    --font-size-h1: clamp(2rem, 5vw + 1rem, 4rem);
+    /* Espaciado lógico con calc() */
+    --main-padding: calc(1rem + 2vw);
+    
+    /* Elevación personalizada */
+    --elevation-3: 0 4px 8px rgb(0 0 0 / 0.28), 0 14px 28px rgb(0 0 0 / 0.26);
+}
+
+/* PASO 3: Layout Híbrido (Grid para estructura principal) */
+.grid-container {
+    display: grid;
+    min-height: 100vh;
+    grid-template-areas: 
+        "header"
+        "main"
+        "footer";
+    grid-template-rows: auto 1fr auto;
+}
+
+.main-header {
+    grid-area: header;
+    background: var(--persona-red);
+    display: flex; /* Flexbox para componentes internos */
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: var(--main-padding); /* Propiedad lógica */
+    box-shadow: var(--elevation-3);
+}
+
+.content-area {
+    grid-area: main;
+    padding: var(--main-padding);
+    background: var(--persona-black);
+}
+
+h1 {
+    font-size: var(--font-size-h1);
+    color: var(--persona-red);
+    margin-block-end: 1.5rem; /* Propiedad lógica */
+}
+
+/* PASO 4: Grid para tarjetas con Container Queries */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    container-type: inline-size; /* Habilita Container Queries */
+}
+
+.card {
+    background: var(--persona-ink);
+    padding: 2rem;
+    border-left: 6px solid var(--persona-red);
+}
+
+/* Uso de @container según requerimiento */
+@container (min-width: 500px) {
+    .card {
+        background: linear-gradient(45deg, var(--persona-ink), #1a1a24);
+        border-left-color: var(--persona-gold);
+    }
+}
+
+.main-footer {
+    grid-area: footer;
+    text-align: center;
+    padding: 1rem;
+    background: var(--persona-ink);
+    border-top: 2px solid var(--persona-red);
+}
+
+/* PASO 5: Media Queries para fallbacks */
+@media (max-width: 600px) {
+    .main-header {
+        flex-direction: column;
+        gap: 10px;
+        padding-block: 1rem;
+    }
+}

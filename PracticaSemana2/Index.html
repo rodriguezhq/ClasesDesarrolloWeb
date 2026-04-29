@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana 02 - Desarrollo de Aplicaciones Web</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="logo">Segunda Practica calificada</div>
+        <nav class="nav-menu">
+            <a href="https://github.com/rodriguezhq" target="_blank" class="nav-link" aria-label="GitHub">
+                <img src="assets/github-svgrepo-com.svg" alt="GitHub" class="nav-icon" />
+            </a>
+            <a href="https://github.com/rodriguezhq" target="_blank" class="nav-link" aria-label="GitHub">
+                <img src="assets/github-svgrepo-com.svg" alt="GitHub" class="nav-icon" />
+            </a>
+            <a href="https://github.com/rodriguezhq" target="_blank" class="nav-link" aria-label="GitHub">
+                <img src="assets/github-svgrepo-com.svg" alt="GitHub" class="nav-icon" />
+            </a>
+            <a href="https://github.com/rodriguezhq" target="_blank" class="nav-link" aria-label="GitHub">
+                <img src="assets/github-svgrepo-com.svg" alt="GitHub" class="nav-icon" />
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="layout-guide elevation-2" aria-labelledby="layout-guide-title">
+            <div class="layout-guide__content">
+                <p class="layout-guide__eyebrow">Diseño UI</p>
+                <h2 id="layout-guide-title">Grid vs Flexbox</h2>
+                <p id="layout-guide-text" class="layout-guide__text">
+                    Grid sirve para organizar la estructura general de la página en filas y columnas.
+                </p>
+            </div>
+
+            <div class="layout-guide__actions" role="tablist" aria-label="Comparación Grid y Flexbox">
+                <button class="layout-button is-active" type="button" data-layout="grid">Grid</button>
+                <button class="layout-button" type="button" data-layout="flex">Flexbox</button>
+            </div>
+
+            <ul id="layout-guide-points" class="layout-guide__points">
+                <li>Ideal para estructuras de dos dimensiones.</li>
+                <li>Permite definir áreas claras con grid-template-areas.</li>
+                <li>Funciona muy bien para el layout principal.</li>
+            </ul>
+        </section>
+
+        <section class="hero">
+            <h1>Desarrollo Web Frontend</h1>
+            <p>Unidad I: HTML5, CSS3, Flexbox/Grid y SEO</p>
+        </section>
+
+        <section class="card-container">
+            <article class="card">
+                <h3>HTML5 Semántico</h3>
+                <p>Uso de etiquetas con significado para mejorar el SEO y la accesibilidad.</p>
+            </article>
+            <article class="card">
+                <h3>CSS Flexbox</h3>
+                <p>Ideal para maquetar componentes en una dimensión (filas o columnas).</p>
+            </article>
+            <article class="card">
+                <h3>CSS Grid</h3>
+                <p>Poderoso sistema bidimensional para diseños complejos y fluidos.</p>
+            </article>
+            <article class="card">
+                <h3>Diseño Responsivo</h3>
+                <p>Adaptación del contenido a cualquier tamaño de pantalla mediante Media Queries.</p>
+            </article>
+            <article class="card">
+                <h3>Diferencia entre em/rem/hv</h3>
+                <p>Em: Unidad relativa al tamaño de fuente del elemento padre.</p>
+                <p>Rem: Unidad relativa al tamaño de fuente del elemento raíz (html).</p>
+                <p>Hv: Unidad relativa a la altura de la ventana gráfica.</p>
+            </article>  
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Facultad de Ingeniería de Sistemas (UNCP)</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
