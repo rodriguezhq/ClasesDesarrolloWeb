@@ -1,0 +1,173 @@
+:root {
+    --bg: #303E8C;
+    --canvas-bg: #ffffff;
+    --box-color: #4b9fc9;
+    --box-size: 50px;
+    --accent: #3F61A6;
+    --error: #d9534f;
+    --transition-fast: 180ms;
+}
+
+/* Reseteo mínimo */
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif;
+    background: var(--bg);
+    color: #111
+}
+
+body {
+    background: var(--bg);
+}
+
+body.theme-1 {
+    --canvas-bg: #303E8C;
+}
+
+body.theme-2 {
+    --canvas-bg: #3F61A6;
+}
+
+body.theme-3 {
+    --canvas-bg: #D5E7F2;
+}
+
+body.theme-4 {
+    --canvas-bg: #8AB5BF;
+}
+
+body.theme-5 {
+    --canvas-bg: #F2E5BD;
+}
+
+.theme-1 {
+    --bg: #303E8C;
+}
+
+.theme-2 {
+    --bg: #3F61A6;
+}
+
+.theme-3 {
+    --bg: #D5E7F2;
+}
+
+.theme-4 {
+    --bg: #8AB5BF;
+}
+
+.theme-5 {
+    --bg: #F2E5BD;
+}
+
+/* Centrado y espacio para controles opcionales */
+.app-wrap {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+/* Canvas: evita estilos inline sobre el canvas mismo */
+canvas#miCanvas {
+    position: fixed;
+    inset: 0;
+    /* top:0; right:0; bottom:0; left:0; */
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(180deg, var(--canvas-bg), #f0f6fb);
+    border: 0;
+    /* sin borde para fullscreen */
+    border-radius: 0;
+    box-shadow: none;
+    cursor: pointer;
+    display: block;
+}
+
+/* Caja dibujada (si representas con CSS cuando sea necesario) */
+.canvas-box {
+    width: var(--box-size);
+    height: var(--box-size);
+    background: var(--box-color);
+    transition: transform var(--transition-fast) ease, background var(--transition-fast) ease;
+    will-change: transform;
+}
+
+/* Estado visual pausado: aplicar a body o wrapper */
+.paused canvas#miCanvas {
+    filter: saturate(.9) contrast(.98);
+    opacity: 0.9;
+    transform: scale(.999);
+    transition: opacity var(--transition-fast) ease, transform var(--transition-fast) ease;
+}
+
+/* Utilidades para inputs/errores: evita style inline, usa clases */
+.input-invalid {
+    outline: 2px solid var(--error);
+    box-shadow: 0 0 8px rgba(217, 83, 79, 0.12);
+}
+
+/* Botones ligeros */
+.btn {
+    appearance: none;
+    border: 0;
+    background: var(--accent);
+    color: white;
+    padding: .45rem .75rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform var(--transition-fast) ease, box-shadow var(--transition-fast) ease;
+}
+
+.btn:active {
+    transform: translateY(1px)
+}
+
+.btn.secondary {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid rgba(63, 96, 165, 0.12)
+}
+
+/* Mensajes de error/ayuda debajo de inputs */
+.form-help {
+    font-size: .85rem;
+    color: rgba(0, 0, 0, 0.6);
+    margin-top: .25rem;
+}
+
+.form-help.error {
+    color: var(--error)
+}
+
+.fps-hud {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 10;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.82);
+    color: #111;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    backdrop-filter: blur(6px);
+    pointer-events: none;
+}
+
+/* Accesibilidad: reduce motion */
+@media (prefers-reduced-motion:reduce) {
+    * {
+        transition: none !important;
+        animation: none !important
+    }
+}
